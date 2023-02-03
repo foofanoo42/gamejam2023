@@ -11,11 +11,13 @@ public class Rabbit : MonoBehaviour
 
     //private Vector3 playerVelocity = Vector3.Forward;
     private bool groundedPlayer;
-    private float playerSpeed = 100000.0f;
-    private float jumpHeight = 1.0f;
-    private float gravityValue = -9.81f;
+    private float playerSpeed = 500000f;
+    private float playerWithoutCarrotSpeed = 500000f;
+    private float playerWithCarrotSpeed = 300000f;
+   // private float jumpHeight = 1.0f;
+    //private float gravityValue = -9.81f;
 
-    private float turnSpeed = 10f;
+    //private float turnSpeed = 10f;
 
     private Carrot thisCarrot;
 
@@ -44,10 +46,11 @@ public class Rabbit : MonoBehaviour
 
         //Debug.Log("Holding");
 
-        if (!Input.GetKey("space"))
+        if (!((Input.GetKey("space")) || (Input.GetButton("Fire1"))))
         {
             _holdingCarrot = false;
             thisCarrot = null;
+            playerSpeed = playerWithoutCarrotSpeed;
 
             //Debug.Log("Dropping Carrot");
 
@@ -83,13 +86,21 @@ public class Rabbit : MonoBehaviour
         //Debug.Log(" colliding");
 
 
-        if (Input.GetKey("space"))
+        if (((Input.GetKey("space"))|| (Input.GetButton("Fire1"))))
         {
             if (thisCarrot == null)
             {
+                //needs to check whether it is a carrot
                 thisCarrot = collision.gameObject.GetComponent<Carrot>();
-                //thisCarrot.transform.rotation = Quaternion.Euler(90, 0, 0);
+                
+
+                thisCarrot.UnPop();
+
+                //play some sound
                 _holdingCarrot = true;
+
+                //should base on carrot size
+                playerSpeed = playerWithCarrotSpeed;
             }
 
             //if (thisCarrot != null)
@@ -136,7 +147,7 @@ public class Rabbit : MonoBehaviour
         //deltaRotation.SetFromToRotation(rigidbodyComponent.velocity, move);
         
         
-        float turn = Vector3.Angle(rigidbodyComponent.velocity.normalised, move.normalised);
+        //float turn = Vector3.Angle(rigidbodyComponent.velocity.normalised, move.normalised);
 
         //rigidbodyComponent.MoveRotation(deltaRotation);
 
