@@ -15,8 +15,10 @@ public class Rabbit : MonoBehaviour
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
 
-    private GameObject thisCarrot;
-   
+    private carrot thisCarrot;
+
+    private bool _holdingCarrot = false;
+
 
     // Update is called once per frame
     void Update()
@@ -32,6 +34,30 @@ public class Rabbit : MonoBehaviour
         //Debug.Log(move);
 
         //characterController.Move(move * Time.deltaTime * playerSpeed);
+
+        if (!_holdingCarrot)
+        {
+            return;
+        }
+
+        Debug.Log("Holding");
+
+        if (!Input.GetKey("space"))
+        {
+            _holdingCarrot = false;
+            thisCarrot = null;
+
+            Debug.Log("Dropping Carrot");
+
+            return;
+
+        }
+
+        if (_holdingCarrot && thisCarrot is not null)
+        {
+            thisCarrot.DragToRabbit(this);
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -59,17 +85,16 @@ public class Rabbit : MonoBehaviour
         {
             if (thisCarrot == null)
             {
-                thisCarrot = collision.gameObject;
-                thisCarrot.transform.rotation = Quaternion.Euler(90, 0, 0);
+                thisCarrot = collision.gameObject.GetComponent<carrot>();
+                //thisCarrot.transform.rotation = Quaternion.Euler(90, 0, 0);
+                _holdingCarrot = true;
             }
 
-            if (thisCarrot != null) thisCarrot.transform.position = this.transform.position;
+            //if (thisCarrot != null)
+            //{
+            //    thisCarrot.transform.position = this.transform.position + new Vector3(0.5f, 0, 0);
+            //}
         }
-
-        
-        
-                
-        
 
 
         //foreach (ContactPoint contact in collision.contacts)
@@ -79,6 +104,7 @@ public class Rabbit : MonoBehaviour
         //if (collision.relativeVelocity.magnitude > 2)
 
     }
+
 
     void FixedUpdate()
     {

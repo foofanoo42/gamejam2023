@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class carrot : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    [SerializeField] private CharacterController controller;
+
+    [SerializeField] private Rigidbody rigidbodyComponent;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -24,9 +23,19 @@ public class carrot : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DragToRabbit(Rabbit rabbit)
     {
-        
+        //controller.Move(rabbit.transform.position - transform.position * 0.7f  );
+        //transform.position += (rabbit.transform.position - transform.position) * 0.7f;
+        //controller.Move(  );
+
+        Debug.Log("Dragging Carrot");
+
+        rigidbodyComponent.AddForce((rabbit.transform.position - transform.position) * 5.7f);
+
+
+
     }
+
+
 }
