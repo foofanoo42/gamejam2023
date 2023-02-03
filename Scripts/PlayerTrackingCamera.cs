@@ -20,9 +20,9 @@ public class PlayerTrackingCamera : MonoBehaviour
     {
         Vector3 desiredPosition = target.transform.position + target.transform.rotation * _locationOffset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-        transform.position = smoothedPosition;
+        //transform.position = smoothedPosition;
 
-        transform.LookAt(target.transform);
+        //transform.LookAt(target.transform);
 
 
     }

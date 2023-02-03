@@ -15,6 +15,8 @@ public class Rabbit : MonoBehaviour
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
 
+    private float turnSpeed = 10f;
+
     private Carrot thisCarrot;
 
     private bool _holdingCarrot = false;
@@ -109,11 +111,51 @@ public class Rabbit : MonoBehaviour
     void FixedUpdate()
     {
         //if (rigidbodyComponent == null) rigidbodyComponent = GetComponent<Rigidbody>();
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
         
-        rigidbodyComponent.AddForce(move * Time.deltaTime * playerSpeed);
+        rigidbodyComponent.AddForce(move * Time.fixedDeltaTime * playerSpeed);
+
+
+        //Vector3 m_EulerAngleVelocity = new Vector3(10, 0, 0);
+
+        //Vector3 findturn = new Vector3(0f,0f,0f);
+        //turn = rigidbodyComponent.velocity;
+
+        //Vector3 x = Vector3.Cross(rigidbodyComponent.velocity.normalized, move.normalized);
+        
+        //float turnSpeed = Mathf.Asin(x.magnitude);
+
+        //Vector3 w = x.normalized * theta / Time.fixedDeltaTime;
+
+        //Quaternion q = transform.rotation * rigidbody.inertiaTensorRotation;
+        //T = q * Vector3.Scale(rigidbody.inertiaTensor, (Quaternion.Inverse(q) * w));
+
+        //Quaternion deltaRotation = Quaternion.Euler((move * Time.fixedDeltaTime*10)-);
+
+        //Quaternion deltaRotation;
+        //deltaRotation.SetFromToRotation(rigidbodyComponent.velocity, move);
+        
+        
+        float turn = Vector3.Angle(rigidbodyComponent.velocity.normalised, move.normalised);
+
+        //rigidbodyComponent.MoveRotation(deltaRotation);
+
+        //rigidbodyComponent.AddTorque(Vector3.up * turn);
+
+        //Vector3 x = Vector3.Cross(oldPoint.normalized, newPoint.normalized);
+        //float theta = Mathf.Asin(x.magnitude);
+        // Vector3 w = x.normalized * theta / Time.fixedDeltaTime;
 
         //if (thisCarrot != null) thisCarrot.transform.position = this.transform.position;
+
+
+
+
+        //apply the torque to the rabbit - direction is up, magnitude is speed and anticlockwise/clockwise
+
+        //rigidbodyComponent.AddTorque(transform.up * turnspeed);
+
+
     }
 
 }
