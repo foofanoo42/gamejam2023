@@ -36,9 +36,40 @@ public class Rabbit : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(" collided");
+        //Debug.Log(" collided");
 
-        thisCarrot = collision.gameObject;
+        //thisCarrot = collision.gameObject;
+
+        //thisCarrot.transform.rotation = Quaternion.Euler(90, 0,0);
+
+        //foreach (ContactPoint contact in collision.contacts)
+        //{
+
+        //}
+        //if (collision.relativeVelocity.magnitude > 2)
+
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        Debug.Log(" colliding");
+
+
+        if (Input.GetKey("space"))
+        {
+            if (thisCarrot == null)
+            {
+                thisCarrot = collision.gameObject;
+                thisCarrot.transform.rotation = Quaternion.Euler(90, 0, 0);
+            }
+
+            if (thisCarrot != null) thisCarrot.transform.position = this.transform.position;
+        }
+
+        
+        
+                
+        
 
 
         //foreach (ContactPoint contact in collision.contacts)
@@ -56,7 +87,7 @@ public class Rabbit : MonoBehaviour
         
         rigidbodyComponent.AddForce(move * Time.deltaTime * playerSpeed);
 
-        if (thisCarrot != null) thisCarrot.transform.position = this.transform.position;
+        //if (thisCarrot != null) thisCarrot.transform.position = this.transform.position;
     }
 
 }
