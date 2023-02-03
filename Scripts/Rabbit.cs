@@ -60,6 +60,18 @@ public class Rabbit : MonoBehaviour
 
     }
 
+	public void DropCarrot()
+	{
+		_holdingCarrot = false;
+        thisCarrot = null;
+	}
+
+	public void PickUpCarrot(Carrot carrot)
+	{
+		_holdingCarrot = true;
+        thisCarrot = carrot;
+	}
+
     private void OnCollisionEnter(Collision collision)
     {
         //Debug.Log(" collided");

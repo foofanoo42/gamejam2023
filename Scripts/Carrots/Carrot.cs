@@ -9,6 +9,11 @@ public class Carrot : MonoBehaviour
 
     [SerializeField] private Rigidbody rigidbodyComponent;
 
+	[SerializeField] private int size;
+	public int Size => size;
+
+	public Rabbit Holder { get; set; }
+
     private void OnCollisionEnter(Collision collision)
     {
         //Debug.Log(" collided");

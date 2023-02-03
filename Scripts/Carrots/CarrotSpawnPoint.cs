@@ -5,21 +5,27 @@ using UnityEngine;
 public class CarrotSpawnPoint : MonoBehaviour
 {
 
-    private Carrot myCarrot;
+    [SerializeField] private Carrot spawnedCarrot;
 
     public bool Spawn(Carrot carrotPrefab, out Carrot newCarrot)
     {
 
-        if (myCarrot is not null)
+        if (spawnedCarrot is not null)
         {
-            newCarrot = myCarrot;
+            newCarrot = spawnedCarrot;
             return false;
         }
 
-        newCarrot = myCarrot = GameObject.Instantiate(carrotPrefab);
+        newCarrot = spawnedCarrot = GameObject.Instantiate(carrotPrefab);
         newCarrot.transform.position = transform.position;
         return true;
 
     }
 
+    void OnTriggerExit(Collider other)
+    {
+        // unlink the spawned carrot 
+        spawnedCarrot = null;
+    }
+    
 }
