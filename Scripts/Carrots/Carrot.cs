@@ -11,7 +11,7 @@ public class Carrot : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(" collided");
+        //Debug.Log(" collided");
         
         
 
@@ -29,7 +29,7 @@ public class Carrot : MonoBehaviour
         //transform.position += (rabbit.transform.position - transform.position) * 0.7f;
         //controller.Move(  );
 
-        Debug.Log("Dragging Carrot");
+        //Debug.Log("Dragging Carrot");
 
         rigidbodyComponent.AddForce((rabbit.transform.position - transform.position) * 5.7f);
 
