@@ -5,7 +5,7 @@ using UnityEngine;
 public class Carrot : MonoBehaviour
 {
 
-    [SerializeField] private CharacterController controller;
+    //[SerializeField] private CharacterController controller;
 
     [SerializeField] private Rigidbody rigidbodyComponent;
 

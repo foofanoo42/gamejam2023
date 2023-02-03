@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rabbit : MonoBehaviour
 {
 
-    [SerializeField] private CharacterController characterController;
+    //[SerializeField] private CharacterController characterController;
 
     [SerializeField] private Rigidbody rigidbodyComponent;
 
@@ -15,7 +15,7 @@ public class Rabbit : MonoBehaviour
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
 
-    private carrot thisCarrot;
+    private Carrot thisCarrot;
 
     private bool _holdingCarrot = false;
 
@@ -85,7 +85,7 @@ public class Rabbit : MonoBehaviour
         {
             if (thisCarrot == null)
             {
-                thisCarrot = collision.gameObject.GetComponent<carrot>();
+                thisCarrot = collision.gameObject.GetComponent<Carrot>();
                 //thisCarrot.transform.rotation = Quaternion.Euler(90, 0, 0);
                 _holdingCarrot = true;
             }
