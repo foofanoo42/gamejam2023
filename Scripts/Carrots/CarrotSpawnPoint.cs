@@ -5,12 +5,20 @@ using UnityEngine;
 public class CarrotSpawnPoint : MonoBehaviour
 {
 
-    public carrot Spawn(carrot carrot)
+    private Carrot myCarrot;
+
+    public bool Spawn(Carrot carrotPrefab, out Carrot newCarrot)
     {
 
-        var newCarrot = GameObject.Instantiate(carrot);
+        if (myCarrot is not null)
+        {
+            newCarrot = myCarrot;
+            return false;
+        }
 
-        return newCarrot;
+        newCarrot = myCarrot = GameObject.Instantiate(carrotPrefab);
+        newCarrot.transform.position = transform.position;
+        return true;
 
     }
 

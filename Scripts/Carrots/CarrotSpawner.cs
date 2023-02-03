@@ -5,17 +5,18 @@ using UnityEngine;
 public class CarrotSpawner : MonoBehaviour
 {
 
-    [SerializeField] private carrot carrotPrefab;
-
-    [SerializeField] private CarrotSpawnPoint[] spawnPoints;
+    [SerializeField] private Carrot carrotPrefab;
 
     [SerializeField] private int spawnInterval;
 
-    private int _countDown = 0;
+    private float _countDown = 0;
+
+    private CarrotSpawnPoint[] _spawnPoints;
 
     void Start()
     {
         _countDown = spawnInterval;
+        _spawnPoints = GetComponentsInChildren<CarrotSpawnPoint>();
     }
 
     // Update is called once per frame
@@ -24,14 +25,17 @@ public class CarrotSpawner : MonoBehaviour
         
         if (_countDown <= 0)
         {
-            int randomIndex = (int) (Random.Range(0, spawnPoints.Length));
-            spawnPoints[randomIndex].Spawn(carrotPrefab);
+            Debug.Log($"Spawning Carrot");
+
+            int randomIndex = (int) (Random.Range(0, _spawnPoints.Length));
+            _spawnPoints[randomIndex].Spawn(carrotPrefab, out Carrot newCarrot);
             _countDown = spawnInterval;
         } else
         {
-            _countDown -= (int) Time.deltaTime;
-        }
-        
+            _countDown -= Time.deltaTime;
 
+            Debug.Log($"{_countDown} {Time.deltaTime}");
+
+        }
     }
 }

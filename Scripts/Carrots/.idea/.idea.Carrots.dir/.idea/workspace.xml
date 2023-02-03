@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62cda5d9-e65c-4863-9fc6-5ae3e56a0412" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../.vs/Assets/project-colors.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../.vs/Assets/project-colors.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.vs/Assets/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../../.vs/Assets/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.vs/VSWorkspaceState.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../.vs/VSWorkspaceState.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.vs/slnx.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/../../.vs/slnx.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Resources/Materials/Grass.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../../Resources/Materials/Grass.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Carrots.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Carrots.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarrotSpawnPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CarrotSpawnPoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarrotSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CarrotSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carrot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../carrot.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +51,10 @@
       <workItem from="1675412381868" duration="3000" />
       <workItem from="1675412623115" duration="77000" />
       <workItem from="1675412906220" duration="3000" />
+      <workItem from="1675413564332" duration="3000" />
+      <workItem from="1675414085539" duration="5000" />
+      <workItem from="1675414512967" duration="8000" />
+      <workItem from="1675414869283" duration="36000" />
     </task>
     <servers />
   </component>
