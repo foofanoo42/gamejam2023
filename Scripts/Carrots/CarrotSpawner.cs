@@ -25,17 +25,12 @@ public class CarrotSpawner : MonoBehaviour
         
         if (_countDown <= 0)
         {
-            Debug.Log($"Spawning Carrot");
-
             int randomIndex = (int) (Random.Range(0, _spawnPoints.Length));
             _spawnPoints[randomIndex].Spawn(carrotPrefab, out Carrot newCarrot);
             _countDown = spawnInterval;
         } else
         {
             _countDown -= Time.deltaTime;
-
-            Debug.Log($"{_countDown} {Time.deltaTime}");
-
         }
     }
 }

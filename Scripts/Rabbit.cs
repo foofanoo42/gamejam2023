@@ -42,14 +42,14 @@ public class Rabbit : MonoBehaviour
             return;
         }
 
-        Debug.Log("Holding");
+        //Debug.Log("Holding");
 
         if (!Input.GetKey("space"))
         {
             _holdingCarrot = false;
             thisCarrot = null;
 
-            Debug.Log("Dropping Carrot");
+            //Debug.Log("Dropping Carrot");
 
             return;
 
@@ -80,7 +80,7 @@ public class Rabbit : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        Debug.Log(" colliding");
+        //Debug.Log(" colliding");
 
 
         if (Input.GetKey("space"))
