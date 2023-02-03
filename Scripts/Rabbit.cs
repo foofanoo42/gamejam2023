@@ -9,7 +9,7 @@ public class Rabbit : MonoBehaviour
 
     //private Vector3 playerVelocity = Vector3.Forward;
     private bool groundedPlayer;
-    private float playerSpeed = 15.0f;
+    private float playerSpeed = 10.0f;
     private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
 
