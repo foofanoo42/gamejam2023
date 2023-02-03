@@ -10,7 +10,7 @@ public class TreeHouse : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        Debug.Log($"Collided with {other.gameObject.name} {layer.value} {other.gameObject.layer}");
+        Debug.Log($"Collided with {other.gameObject.name} {other.gameObject.layer}");
     
         if (LayerMask.NameToLayer("Carrot") == other.gameObject.layer) {
             Debug.Log("Carrot Point Score");
