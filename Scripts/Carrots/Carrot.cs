@@ -8,6 +8,7 @@ public class Carrot : MonoBehaviour
     //[SerializeField] private CharacterController controller;
 
     [SerializeField] private Rigidbody rigidbodyComponent;
+    private bool popped = false;
 
 	[SerializeField] private int size;
 	public int Size => size;
@@ -36,11 +37,18 @@ public class Carrot : MonoBehaviour
 
         //Debug.Log("Dragging Carrot");
 
-        rigidbodyComponent.AddForce((rabbit.transform.position - transform.position) * 5.7f);
+        rigidbodyComponent.AddForce((rabbit.transform.position - transform.position) * 10.0f);
 
 
 
     }
 
-
+    public void UnPop()
+    {
+        if(!popped)
+        {
+            this.transform.rotation = Quaternion.Euler(90f, 0f, 0f);
+            popped = true;
+        }
+    }
 }
