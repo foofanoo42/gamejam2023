@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Scripts",
+    "\\Scripts\\Carrots"
   ],
-  "SelectedNode": "\\C:\\Users\\GameJam\\2023\\Assets",
+  "SelectedNode": "\\Scripts\\Carrots",
   "PreviewInSolutionExplorer": false
 }
