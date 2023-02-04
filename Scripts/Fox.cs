@@ -10,12 +10,14 @@ public class Fox : MonoBehaviour
     [SerializeField] private Rabbit theRabbit;
 
     private float moveTime = 2;
-    private int huntTime = 3;
+    private int huntTime = 10;
     private bool moveMode = false;
     private bool huntMode = false;
     private Vector3 moveDirection;
     private Quaternion newDirection;
-    
+
+    [SerializeField] private SoundManager soundMan;
+
     private Rabbit thisRabbit;
      
     
@@ -59,7 +61,7 @@ public class Fox : MonoBehaviour
 
             if (huntTime <=0)
             {
-                
+                soundMan.PlaySound(3);
                 moveMode = false;
                 moveTime = 8;
                 huntMode = true;

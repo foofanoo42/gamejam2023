@@ -45,6 +45,13 @@ public class SoundManager : MonoBehaviour
                 
 
                 break;
+
+            case 3:
+                src.clip = foxGrowl;
+                src.Play();
+
+
+                break;
             case 9:
 
                 src2.clip = mainMusic;

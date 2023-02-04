@@ -56,30 +56,9 @@ public class Rabbit : MonoBehaviour
 
         //characterController.Move(move * Time.deltaTime * playerSpeed);
 
-        if (!_holdingCarrot)
-        {
-            return;
-        }
+       
 
-        //Debug.Log("Holding");
-
-        if (!((Input.GetKey("space")) || (Input.GetButton("Fire1"))))
-        {
-            _holdingCarrot = false;
-            thisCarrot = null;
-            playerSpeed = playerWithoutCarrotSpeed;
-            _maxspeed = 1f;
-
-            //Debug.Log("Dropping Carrot");
-
-            return;
-
-        }
-
-        if (_holdingCarrot && thisCarrot is not null)
-        {
-            thisCarrot.DragToRabbit(this);
-        }
+        
 
     }
 
@@ -201,15 +180,17 @@ public class Rabbit : MonoBehaviour
 
         }
         //max speed
-       
 
 
-                //scale it to max speed
+        
 
 
-            //Vector3 m_EulerAngleVelocity = new Vector3(10, 0, 0);
+        //scale it to max speed
 
-            //Vector3 findturn = new Vector3(0f,0f,0f);
+
+        //Vector3 m_EulerAngleVelocity = new Vector3(10, 0, 0);
+
+        //Vector3 findturn = new Vector3(0f,0f,0f);
         Vector3 turn = rigidbodyComponent.velocity;
 
         turn.y = 0f;
@@ -248,7 +229,7 @@ public class Rabbit : MonoBehaviour
 
         rigidbodyComponent.AddTorque(x);
 
-        
+
         //Vector3 q = Vector3.Scale(rigidbody.inertiaTensor, (Quaternion.Inverse(q) * w));
 
 
@@ -290,7 +271,25 @@ public class Rabbit : MonoBehaviour
         //apply the torque to the rabbit - direction is up, magnitude is speed and anticlockwise/clockwise
 
 
+        if (!_holdingCarrot)
+        {
+            return;
+        }
 
+        //Debug.Log("Holding");
+
+        if (!((Input.GetKey("space")) || (Input.GetButton("Fire1"))))
+        {
+            _holdingCarrot = false;
+            thisCarrot = null;
+            playerSpeed = playerWithoutCarrotSpeed;
+            _maxspeed = 1f;
+
+            //Debug.Log("Dropping Carrot");
+
+            return;
+
+        }
 
     }
 
