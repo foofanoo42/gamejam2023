@@ -68,7 +68,11 @@ public class Fox : MonoBehaviour
     {
 
         thisRabbit = collision.gameObject.GetComponent<Rabbit>();
-        Debug.Log("fox collided with rabbit");
-        thisRabbit.KillRabbit();
+
+        if (thisRabbit is not null)
+        {
+            Debug.Log("Fox collided with rabbit");
+            thisRabbit.KillRabbit();
+        }
     }
 }

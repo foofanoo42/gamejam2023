@@ -125,6 +125,12 @@ public class Rabbit : MonoBehaviour
                 //needs to check whether it is a carrot
                 thisCarrot = collision.gameObject.GetComponent<Carrot>();
                 
+                // the interactable is not a carrot we do not care
+                if (thisCarrot is null)
+                {
+                    return;
+                }
+
                 thisCarrot.UnPop();
 
                 //play some sound

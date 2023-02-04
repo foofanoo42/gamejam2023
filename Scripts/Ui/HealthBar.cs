@@ -61,17 +61,8 @@ namespace Ui
 
         private void SetWidth(float width)
         {
-
             float percent = width;
-            
-            //RectTransform rectTransform = bar.rectTransform;
-
             float newEndPoint = _leftX + _maxWidth * percent;
-
-            Debug.Log($"{_leftX} {_maxWidth} {percent} {newEndPoint}");
-            
-            //Debug.Log($"{width} {bar.rectTransform.offsetMin.x} {newEndPoint} {bar.rectTransform.offsetMax.x}");
-            
             bar.rectTransform.offsetMax = new Vector2(newEndPoint, _topY);
         }
         
