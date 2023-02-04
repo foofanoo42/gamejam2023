@@ -11,9 +11,9 @@ public class Rabbit : MonoBehaviour
 
     //private Vector3 playerVelocity = Vector3.Forward;
     private bool groundedPlayer;
-    private float playerSpeed = 500000f;
-    private float playerWithoutCarrotSpeed = 500000f;
-    private float playerWithCarrotSpeed = 300000f;
+    private float playerSpeed = 900f;
+    private float playerWithoutCarrotSpeed = 900f;
+    private float playerWithCarrotSpeed = 600f;
    // private float jumpHeight = 1.0f;
     //private float gravityValue = -9.81f;
 
@@ -22,6 +22,8 @@ public class Rabbit : MonoBehaviour
     private Carrot thisCarrot;
 
     private bool _holdingCarrot = false;
+    private bool _alive = true;
+    private float _maxspeed = 1f;
 
 
     // Update is called once per frame
@@ -51,6 +53,7 @@ public class Rabbit : MonoBehaviour
             _holdingCarrot = false;
             thisCarrot = null;
             playerSpeed = playerWithoutCarrotSpeed;
+            _maxspeed = 1f;
 
             //Debug.Log("Dropping Carrot");
 
@@ -76,6 +79,14 @@ public class Rabbit : MonoBehaviour
 		_holdingCarrot = true;
         thisCarrot = carrot;
 	}
+
+    public void KillRabbit()
+    {
+        //_holdingCarrot = true;
+        //thisCarrot = carrot;
+        _alive = false;
+        transform.rotation = Quaternion.Euler(90, 0, 0);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -105,7 +116,6 @@ public class Rabbit : MonoBehaviour
                 //needs to check whether it is a carrot
                 thisCarrot = collision.gameObject.GetComponent<Carrot>();
                 
-
                 thisCarrot.UnPop();
 
                 //play some sound
@@ -113,6 +123,7 @@ public class Rabbit : MonoBehaviour
 
                 //should base on carrot size
                 playerSpeed = playerWithCarrotSpeed;
+                _maxspeed = 0.5f;
             }
 
             //if (thisCarrot != null)
@@ -135,48 +146,60 @@ public class Rabbit : MonoBehaviour
     {
         //if (rigidbodyComponent == null) rigidbodyComponent = GetComponent<Rigidbody>();
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-        
-        rigidbodyComponent.AddForce(move * Time.fixedDeltaTime * playerSpeed);
 
 
-        //Vector3 m_EulerAngleVelocity = new Vector3(10, 0, 0);
-
-        //Vector3 findturn = new Vector3(0f,0f,0f);
-        //turn = rigidbodyComponent.velocity;
-
-        //Vector3 x = Vector3.Cross(rigidbodyComponent.velocity.normalized, move.normalized);
-        
-        //float turnSpeed = Mathf.Asin(x.magnitude);
-
-        //Vector3 w = x.normalized * theta / Time.fixedDeltaTime;
-
-        //Quaternion q = transform.rotation * rigidbody.inertiaTensorRotation;
-        //T = q * Vector3.Scale(rigidbody.inertiaTensor, (Quaternion.Inverse(q) * w));
-
-        //Quaternion deltaRotation = Quaternion.Euler((move * Time.fixedDeltaTime*10)-);
-
-        //Quaternion deltaRotation;
-        //deltaRotation.SetFromToRotation(rigidbodyComponent.velocity, move);
-        
-        
-        //float turn = Vector3.Angle(rigidbodyComponent.velocity.normalised, move.normalised);
-
-        //rigidbodyComponent.MoveRotation(deltaRotation);
-
-        //rigidbodyComponent.AddTorque(Vector3.up * turn);
-
-        //Vector3 x = Vector3.Cross(oldPoint.normalized, newPoint.normalized);
-        //float theta = Mathf.Asin(x.magnitude);
-        // Vector3 w = x.normalized * theta / Time.fixedDeltaTime;
-
-        //if (thisCarrot != null) thisCarrot.transform.position = this.transform.position;
+        if (_alive)
+        {
+            rigidbodyComponent.AddForce(move * Time.fixedDeltaTime * playerSpeed);
+        }
+        //max speed
+        if (rigidbodyComponent.velocity.magnitude > _maxspeed)
+        {
+            rigidbodyComponent.velocity = rigidbodyComponent.velocity.normalized * _maxspeed;
+        }
 
 
+                //scale it to max speed
 
 
-        //apply the torque to the rabbit - direction is up, magnitude is speed and anticlockwise/clockwise
+            //Vector3 m_EulerAngleVelocity = new Vector3(10, 0, 0);
 
-        //rigidbodyComponent.AddTorque(transform.up * turnspeed);
+            //Vector3 findturn = new Vector3(0f,0f,0f);
+            //turn = rigidbodyComponent.velocity;
+
+            //Vector3 x = Vector3.Cross(rigidbodyComponent.velocity.normalized, move.normalized);
+
+            //float turnSpeed = Mathf.Asin(x.magnitude);
+
+            //Vector3 w = x.normalized * theta / Time.fixedDeltaTime;
+
+            //Quaternion q = transform.rotation * rigidbody.inertiaTensorRotation;
+            //T = q * Vector3.Scale(rigidbody.inertiaTensor, (Quaternion.Inverse(q) * w));
+
+            //Quaternion deltaRotation = Quaternion.Euler((move * Time.fixedDeltaTime*10)-);
+
+            //Quaternion deltaRotation;
+            //deltaRotation.SetFromToRotation(rigidbodyComponent.velocity, move);
+
+
+            //float turn = Vector3.Angle(rigidbodyComponent.velocity.normalised, move.normalised);
+
+            //rigidbodyComponent.MoveRotation(deltaRotation);
+
+            //rigidbodyComponent.AddTorque(Vector3.up * turn);
+
+            //Vector3 x = Vector3.Cross(oldPoint.normalized, newPoint.normalized);
+            //float theta = Mathf.Asin(x.magnitude);
+            // Vector3 w = x.normalized * theta / Time.fixedDeltaTime;
+
+            //if (thisCarrot != null) thisCarrot.transform.position = this.transform.position;
+
+
+
+
+            //apply the torque to the rabbit - direction is up, magnitude is speed and anticlockwise/clockwise
+
+            //rigidbodyComponent.AddTorque(transform.up * turnspeed);
 
 
     }

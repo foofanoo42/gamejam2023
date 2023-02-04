@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 728219373656287137}
   - component: {fileID: 3001560131083295722}
   - component: {fileID: -87738033885204177}
-  - component: {fileID: 8932952580753467587}
   m_Layer: 6
   m_Name: Carrot
   m_TagString: Untagged
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5054567285674407061}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.1, y: 0.52, z: 7.84}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4921243686176132187}
@@ -71,7 +70,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5054567285674407061}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 4
   m_Drag: 10
   m_AngularDrag: 10
   m_UseGravity: 0
@@ -79,24 +78,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!143 &8932952580753467587
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5054567285674407061}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4882320302145858480
 PrefabInstance:
   m_ObjectHideFlags: 0
