@@ -138,7 +138,6 @@ public class Rabbit : MonoBehaviour
         
         rigidbodyComponent.AddForce(move * Time.fixedDeltaTime * playerSpeed);
 
-
         //Vector3 m_EulerAngleVelocity = new Vector3(10, 0, 0);
 
         //Vector3 findturn = new Vector3(0f,0f,0f);
