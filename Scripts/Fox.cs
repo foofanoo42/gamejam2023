@@ -54,6 +54,7 @@ public class Fox : MonoBehaviour
             moveDirection *= 10f;
 
             huntTime--;
+
             Debug.Log("steps 'till hunting: " + huntTime);
 
             if (huntTime <=0)
@@ -137,6 +138,7 @@ public class Fox : MonoBehaviour
         
         Debug.Log("fox collided with rabbit");
         thisRabbit.KillRabbit();
+        foxSpeed = 0f;
 
     }
 }

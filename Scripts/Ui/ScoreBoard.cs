@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Ui
 {
@@ -19,7 +20,12 @@ namespace Ui
 
 		[SerializeField] private HealthBar healthBar;
 
+		
+		[SerializeField] private Rabbit theRabbit;
+		[SerializeField] private Image blackScreen;
+
 		private float _timeLeftUnitlStarve;
+		private float _timeEndScreen = 8f;
 
         public void Awake()
         {
@@ -47,7 +53,20 @@ namespace Ui
 
 			_timeLeftUnitlStarve -= hunger * Time.fixedDeltaTime;
 
+
 			if (_timeLeftUnitlStarve <= 0)
+			{
+				Debug.Log("You Lose!");
+				_timeEndScreen -= Time.fixedDeltaTime;
+				theRabbit.KillRabbit();
+
+				blackScreen.color = new Color(0f, 0f, 0f, 0.5f);
+
+			}
+
+			//Debug.Log($"{_timeLeftUnitlStarve} {_timeEndScreen}");
+
+			if ((_timeLeftUnitlStarve <= 0)&&(_timeEndScreen <0))
 			{
 				//Debug.Log("You Lose!");
 				SceneManager.LoadScene(SceneUtil.ScoreScene);

@@ -1650,8 +1650,9 @@ MonoBehaviour:
   _score: 0
   scoreText: {fileID: 1401488386}
   timeUnitlStarve: 200
-  hunger: 0
+  hunger: 10
   healthBar: {fileID: 807341059}
+  theRabbit: {fileID: 377798380931619800}
 --- !u!114 &1844983804
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -94,8 +94,8 @@ public class Rabbit : MonoBehaviour
         //_holdingCarrot = true;
         //thisCarrot = carrot;
         _alive = false;
-        transform.rotation = Quaternion.Euler(90, 0, 0);
-        SceneManager.LoadScene(SceneUtil.ScoreScene);
+        transform.rotation = Quaternion.Euler(0f, 0f, 90f);
+        //SceneManager.LoadScene(SceneUtil.ScoreScene);
 
         //rigidbodyComponent.AddForce(new Vector3(0f, 10f, 0f));
 
