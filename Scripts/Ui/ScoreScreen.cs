@@ -8,9 +8,8 @@ public class ScoreScreen : MonoBehaviour
 
     public void PlayAgain()
     {
-
-        SceneManager.LoadScene(1);
-
+		Debug.Log($"Loading Scene: {SceneUtil.PlayScene}");
+        SceneManager.LoadScene(SceneUtil.PlayScene);
     }
     
     public void Update()

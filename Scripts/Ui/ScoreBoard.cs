@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 namespace Ui
 {
@@ -49,6 +50,7 @@ namespace Ui
 			if (_timeLeftUnitlStarve <= 0)
 			{
 				Debug.Log("You Lose!");
+				SceneManager.LoadScene(SceneUtil.ScoreScene);
 			}
 			
 			float healthPercent = _timeLeftUnitlStarve / timeUnitlStarve;

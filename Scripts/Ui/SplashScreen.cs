@@ -8,7 +8,8 @@ namespace Ui
 
         public void StartGame()
         {
-            SceneManager.LoadScene(1);
+            Debug.Log($"Loading Scene: {SceneUtil.PlayScene}");
+            SceneManager.LoadScene(SceneUtil.PlayScene);
         }
 
         public void Update()
