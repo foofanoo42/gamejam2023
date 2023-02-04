@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Rabbit : MonoBehaviour
 {
@@ -52,7 +53,7 @@ public class Rabbit : MonoBehaviour
 
         //Debug.Log("Holding");
 
-        if (!((Input.GetKey("space")) || (Input.GetButton("Jump"))))
+        if (!((Input.GetKey("space")) || (Input.GetButton("Fire1"))))
         {
             _holdingCarrot = false;
             thisCarrot = null;
@@ -90,6 +91,7 @@ public class Rabbit : MonoBehaviour
         //thisCarrot = carrot;
         _alive = false;
         transform.rotation = Quaternion.Euler(90, 0, 0);
+        SceneManager.LoadScene(SceneUtil.ScoreScene);
 
         //rigidbodyComponent.AddForce(new Vector3(0f, 10f, 0f));
 
@@ -116,7 +118,7 @@ public class Rabbit : MonoBehaviour
         //Debug.Log(" colliding");
 
 
-        if (((Input.GetKey("space"))|| (Input.GetButton("Jump"))))
+        if (((Input.GetKey("space"))|| (Input.GetButton("Fire1"))))
         {
             if (thisCarrot == null)
             {

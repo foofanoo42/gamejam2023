@@ -55,7 +55,7 @@ public class Fox : MonoBehaviour
         {
             rigidbodyComponent.AddForce(moveDirection * Time.fixedDeltaTime * foxSpeed);
 
-            if (rigidbodyComponent.velocity.magnitude > 1) ;
+            if (rigidbodyComponent.velocity.magnitude > 1)
             {
                 rigidbodyComponent.velocity = rigidbodyComponent.velocity.normalized * 1; 
             }
