@@ -14,6 +14,7 @@ public class Rabbit : MonoBehaviour
     private float playerSpeed = 900f;
     private float playerWithoutCarrotSpeed = 900f;
     private float playerWithCarrotSpeed = 600f;
+    
    // private float jumpHeight = 1.0f;
     //private float gravityValue = -9.81f;
 
@@ -29,6 +30,9 @@ public class Rabbit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+
         //groundedPlayer = controller.isGrounded;
         //if (groundedPlayer && playerVelocity.y < 0)
         //{
@@ -48,7 +52,7 @@ public class Rabbit : MonoBehaviour
 
         //Debug.Log("Holding");
 
-        if (!((Input.GetKey("space")) || (Input.GetButton("Fire1"))))
+        if (!((Input.GetKey("space")) || (Input.GetButton("Jump"))))
         {
             _holdingCarrot = false;
             thisCarrot = null;
@@ -86,6 +90,9 @@ public class Rabbit : MonoBehaviour
         //thisCarrot = carrot;
         _alive = false;
         transform.rotation = Quaternion.Euler(90, 0, 0);
+
+        //rigidbodyComponent.AddForce(new Vector3(0f, 10f, 0f));
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -109,7 +116,7 @@ public class Rabbit : MonoBehaviour
         //Debug.Log(" colliding");
 
 
-        if (((Input.GetKey("space"))|| (Input.GetButton("Fire1"))))
+        if (((Input.GetKey("space"))|| (Input.GetButton("Jump"))))
         {
             if (thisCarrot == null)
             {
@@ -150,13 +157,19 @@ public class Rabbit : MonoBehaviour
 
         if (_alive)
         {
+
+            //move the rabbit
             rigidbodyComponent.AddForce(move * Time.fixedDeltaTime * playerSpeed);
+
+            //check and apply max speed
+            if (rigidbodyComponent.velocity.magnitude > _maxspeed)
+            {
+                rigidbodyComponent.velocity = rigidbodyComponent.velocity.normalized * _maxspeed;
+            }
+
         }
         //max speed
-        if (rigidbodyComponent.velocity.magnitude > _maxspeed)
-        {
-            rigidbodyComponent.velocity = rigidbodyComponent.velocity.normalized * _maxspeed;
-        }
+       
 
 
                 //scale it to max speed
