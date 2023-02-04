@@ -162,7 +162,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132535386}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -680,7 +680,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666709888}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -777,7 +777,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739324791}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1101,7 +1101,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167923803}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2016,6 +2016,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -660996242311253153, guid: 927b972cea7a2b64d9a0b83bcb65250a,
         type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -660996242311253153, guid: 927b972cea7a2b64d9a0b83bcb65250a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -660996242311253153, guid: 927b972cea7a2b64d9a0b83bcb65250a,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -660996242311253153, guid: 927b972cea7a2b64d9a0b83bcb65250a,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -2087,7 +2102,7 @@ PrefabInstance:
     - target: {fileID: 4823035072409479937, guid: 927b972cea7a2b64d9a0b83bcb65250a,
         type: 3}
       propertyPath: m_Constraints
-      value: 112
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 5661004528410492087, guid: 927b972cea7a2b64d9a0b83bcb65250a,
         type: 3}
@@ -2157,6 +2172,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 377798380931619796}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &377798380931619800 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2650652755848953370, guid: 927b972cea7a2b64d9a0b83bcb65250a,
+    type: 3}
+  m_PrefabInstance: {fileID: 377798380931619796}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377798380931619797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad7ab791eac68204bb5e388499c0ba50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1633461262839679729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2293,6 +2320,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fox
       objectReference: {fileID: 0}
+    - target: {fileID: 8722534469649049678, guid: e4a4264b24fbadb4a8e09eb849ee0fea,
+        type: 3}
+      propertyPath: theRabbit
+      value: 
+      objectReference: {fileID: 377798380931619800}
     - target: {fileID: 8722534469649049678, guid: e4a4264b24fbadb4a8e09eb849ee0fea,
         type: 3}
       propertyPath: rigidbodyComponent

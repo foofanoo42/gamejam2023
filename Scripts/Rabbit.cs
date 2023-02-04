@@ -10,12 +10,15 @@ public class Rabbit : MonoBehaviour
 
     [SerializeField] private Rigidbody rigidbodyComponent;
 
+    [SerializeField] private float rotSpeed = 50f;
+
+
     //private Vector3 playerVelocity = Vector3.Forward;
     private bool groundedPlayer;
     private float playerSpeed = 900f;
     private float playerWithoutCarrotSpeed = 900f;
     private float playerWithCarrotSpeed = 600f;
-    private float rotSpeed = 100f;
+    
     
    // private float jumpHeight = 1.0f;
     //private float gravityValue = -9.81f;
@@ -189,19 +192,43 @@ public class Rabbit : MonoBehaviour
             //Vector3 findturn = new Vector3(0f,0f,0f);
         Vector3 turn = rigidbodyComponent.velocity;
 
-        turn.z = 0f;
+        turn.y = 0f;
         turn.Normalize();
 
-        move.z = 0f;
+
+
+        move.y = 0f;
         move.Normalize();
 
 
+        Vector3 modelRot = transform.rotation* Vector3.forward;
         //Vector3 x = Vector3.Cross(oldPoint.normalized, newPoint.normalized);
 
-        Vector3 x = Vector3.Cross(turn, move);
+        Vector3 x = Vector3.Cross(modelRot, turn) ;
 
-        rigidbodyComponent.AddTorque(x * Time.fixedDeltaTime* rotSpeed);
+        float c = Vector3.Dot(modelRot, turn);
+        float s = x.y;
+        
+        if(c<0)
+        {
+            if (s < 0)
+            {
+                x.y = -1f;
+            }
 
+            else
+            {
+                x.y = 1f;
+            }
+        }
+        x *= Time.fixedDeltaTime * rotSpeed;
+
+
+        //Debug.Log("turn is: "+ turn + x + "rotation is:" + transform.rotation);
+
+        rigidbodyComponent.AddTorque(x);
+
+        
         //Vector3 q = Vector3.Scale(rigidbody.inertiaTensor, (Quaternion.Inverse(q) * w));
 
 
