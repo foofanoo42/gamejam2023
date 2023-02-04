@@ -15,6 +15,7 @@ public class Rabbit : MonoBehaviour
     private float playerSpeed = 900f;
     private float playerWithoutCarrotSpeed = 900f;
     private float playerWithCarrotSpeed = 600f;
+    private float rotSpeed = 100f;
     
    // private float jumpHeight = 1.0f;
     //private float gravityValue = -9.81f;
@@ -186,41 +187,62 @@ public class Rabbit : MonoBehaviour
             //Vector3 m_EulerAngleVelocity = new Vector3(10, 0, 0);
 
             //Vector3 findturn = new Vector3(0f,0f,0f);
-            //turn = rigidbodyComponent.velocity;
+        Vector3 turn = rigidbodyComponent.velocity;
 
-            //Vector3 x = Vector3.Cross(rigidbodyComponent.velocity.normalized, move.normalized);
+        turn.z = 0f;
+        turn.Normalize();
 
-            //float turnSpeed = Mathf.Asin(x.magnitude);
-
-            //Vector3 w = x.normalized * theta / Time.fixedDeltaTime;
-
-            //Quaternion q = transform.rotation * rigidbody.inertiaTensorRotation;
-            //T = q * Vector3.Scale(rigidbody.inertiaTensor, (Quaternion.Inverse(q) * w));
-
-            //Quaternion deltaRotation = Quaternion.Euler((move * Time.fixedDeltaTime*10)-);
-
-            //Quaternion deltaRotation;
-            //deltaRotation.SetFromToRotation(rigidbodyComponent.velocity, move);
+        move.z = 0f;
+        move.Normalize();
 
 
-            //float turn = Vector3.Angle(rigidbodyComponent.velocity.normalised, move.normalised);
+        //Vector3 x = Vector3.Cross(oldPoint.normalized, newPoint.normalized);
 
-            //rigidbodyComponent.MoveRotation(deltaRotation);
+        Vector3 x = Vector3.Cross(turn, move);
 
-            //rigidbodyComponent.AddTorque(Vector3.up * turn);
+        rigidbodyComponent.AddTorque(x * Time.fixedDeltaTime* rotSpeed);
 
-            //Vector3 x = Vector3.Cross(oldPoint.normalized, newPoint.normalized);
-            //float theta = Mathf.Asin(x.magnitude);
-            // Vector3 w = x.normalized * theta / Time.fixedDeltaTime;
-
-            //if (thisCarrot != null) thisCarrot.transform.position = this.transform.position;
+        //Vector3 q = Vector3.Scale(rigidbody.inertiaTensor, (Quaternion.Inverse(q) * w));
 
 
+        //Vector3 x = Vector3.Cross(rigidbodyComponent.velocity.normalized, move.normalized);
+
+        //float turnSpeed = Mathf.Asin(x.magnitude);
+
+        //Vector3 w = x.normalized * theta / Time.fixedDeltaTime;
+
+        //Quaternion q = transform.rotation * rigidbody.inertiaTensorRotation;
 
 
-            //apply the torque to the rabbit - direction is up, magnitude is speed and anticlockwise/clockwise
+        //Quaternion deltaRotation = Quaternion.Euler((move * Time.fixedDeltaTime*10)-);
 
-            //rigidbodyComponent.AddTorque(transform.up * turnspeed);
+        //Quaternion deltaRotation;
+        //deltaRotation.SetFromToRotation(rigidbodyComponent.velocity, move);
+
+
+        //float turn = Vector3.Angle(rigidbodyComponent.velocity.normalised, move.normalised);
+
+        //rigidbodyComponent.MoveRotation(deltaRotation);
+
+        //oldPoint = new 
+
+        //rigidbodyComponent.AddTorque(Vector3.up * turn);
+
+
+
+
+
+        //float theta = Mathf.Asin(x.magnitude);
+        // Vector3 w = x.normalized * theta / Time.fixedDeltaTime;
+
+        //if (thisCarrot != null) thisCarrot.transform.position = this.transform.position;
+
+
+
+
+        //apply the torque to the rabbit - direction is up, magnitude is speed and anticlockwise/clockwise
+
+
 
 
     }
