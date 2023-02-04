@@ -1130,8 +1130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   bar: {fileID: 1840044023}
-  fullHealth: {r: 0.062375836, g: 0.5471698, b: 0, a: 0}
-  noHealth: {r: 0.6132076, g: 0, b: 0, a: 0}
+  fullHealth: {r: 0.062375836, g: 0.5471698, b: 0, a: 1}
+  noHealth: {r: 0.6132076, g: 0, b: 0, a: 1}
 --- !u!114 &1840044023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1205,7 +1205,7 @@ MonoBehaviour:
   _score: 0
   scoreText: {fileID: 1401488386}
   timeUnitlStarve: 200
-  hunger: 20
+  hunger: 10
   healthBar: {fileID: 1840044022}
 --- !u!114 &1844983804
 MonoBehaviour:
