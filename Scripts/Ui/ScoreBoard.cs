@@ -10,7 +10,7 @@ namespace Ui
     public class ScoreBoard : MonoBehaviour
     {
 
-        [SerializeField] private int _score;
+        public static int Score { get; set; }
         
         [SerializeField] private TextMeshProUGUI scoreText;
 
@@ -31,15 +31,16 @@ namespace Ui
         {
             TreeHouse.OnPointsGained += AddToScore;
 			_timeLeftUnitlStarve = timeUnitlStarve;
+			Score = 0;
         }
         
         private void AddToScore(int pointsGained)
         {
-            _score += pointsGained;
+            Score += pointsGained;
 
-            Debug.Log($"{_score}");
+            Debug.Log($"{Score}");
             
-            scoreText.text = $"{_score}";
+            scoreText.text = $"{Score}";
 
 			// reset time until starve
 			_timeLeftUnitlStarve = timeUnitlStarve;

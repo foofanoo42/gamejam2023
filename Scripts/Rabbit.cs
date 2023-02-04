@@ -8,6 +8,8 @@ public class Rabbit : MonoBehaviour
 
     //[SerializeField] private CharacterController characterController;
 
+    [SerializeField] private Animator animator;
+    
     [SerializeField] private Rigidbody rigidbodyComponent;
 
     [SerializeField] private float rotSpeed = 50f;

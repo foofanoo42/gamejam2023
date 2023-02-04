@@ -220,12 +220,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &161366755 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 290534639263746404, guid: e4a4264b24fbadb4a8e09eb849ee0fea,
-    type: 3}
-  m_PrefabInstance: {fileID: 2116290925945354245}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2080,6 +2074,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095473385}
   m_CullTransparentMesh: 1
+--- !u!54 &2099980010 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 290534639263746404, guid: e4a4264b24fbadb4a8e09eb849ee0fea,
+    type: 3}
+  m_PrefabInstance: {fileID: 2116290925945354245}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2110143260 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3562172174174010972, guid: 31cb5064ba983694eae86d35eeec63e0,
@@ -2436,8 +2436,13 @@ PrefabInstance:
       objectReference: {fileID: 377798380931619800}
     - target: {fileID: 8722534469649049678, guid: e4a4264b24fbadb4a8e09eb849ee0fea,
         type: 3}
+      propertyPath: foxSpeed
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 8722534469649049678, guid: e4a4264b24fbadb4a8e09eb849ee0fea,
+        type: 3}
       propertyPath: rigidbodyComponent
       value: 
-      objectReference: {fileID: 161366755}
+      objectReference: {fileID: 2099980010}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4a4264b24fbadb4a8e09eb849ee0fea, type: 3}
