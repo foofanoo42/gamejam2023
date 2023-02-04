@@ -43,13 +43,13 @@ namespace Ui
 		private void FixedUpdate()
 		{
 
-			Debug.Log($"{_timeLeftUnitlStarve} {hunger} {Time.deltaTime}");
+			//Debug.Log($"{_timeLeftUnitlStarve} {hunger} {Time.deltaTime}");
 
 			_timeLeftUnitlStarve -= hunger * Time.fixedDeltaTime;
 
 			if (_timeLeftUnitlStarve <= 0)
 			{
-				Debug.Log("You Lose!");
+				//Debug.Log("You Lose!");
 				SceneManager.LoadScene(SceneUtil.ScoreScene);
 			}
 			

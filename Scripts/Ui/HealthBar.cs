@@ -24,11 +24,27 @@ namespace Ui
         [SerializeField] private Color fullHealth;
         [SerializeField] private Color noHealth;
 
-        private Vector2 _initialOffsetMax;
-       
+        /// <summary>
+        /// 
+        /// </summary>
+        //private Vector2 _initialOffsetMax;
+
+        [SerializeField] private float _maxWidth;
+
+        [SerializeField] private float _topY;
+        [SerializeField] private float _bottomY;
+
+        [SerializeField] private float _leftX;
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public void Awake()
         {
-            _initialOffsetMax = bar.rectTransform.offsetMax;
+            _leftX = bar.rectTransform.offsetMin.x;
+            _bottomY = bar.rectTransform.offsetMin.y;
+            _topY = bar.rectTransform.offsetMax.y;
+            _maxWidth = bar.rectTransform.offsetMax.x - bar.rectTransform.offsetMin.x;
         }
         
         /// <summary>
@@ -45,8 +61,18 @@ namespace Ui
 
         private void SetWidth(float width)
         {
-            RectTransform rectTransform = bar.rectTransform;
-            rectTransform.offsetMax = new Vector2(rectTransform.offsetMin.x + _initialOffsetMax.x * width, _initialOffsetMax.y);
+
+            float percent = width;
+            
+            //RectTransform rectTransform = bar.rectTransform;
+
+            float newEndPoint = _leftX + _maxWidth * percent;
+
+            Debug.Log($"{_leftX} {_maxWidth} {percent} {newEndPoint}");
+            
+            //Debug.Log($"{width} {bar.rectTransform.offsetMin.x} {newEndPoint} {bar.rectTransform.offsetMax.x}");
+            
+            bar.rectTransform.offsetMax = new Vector2(newEndPoint, _topY);
         }
         
     }
