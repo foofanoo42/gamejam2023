@@ -37,7 +37,7 @@ public class Carrot : MonoBehaviour
 
         //Debug.Log("Dragging Carrot");
 
-        rigidbodyComponent.AddForce((rabbit.transform.position - transform.position) * 10.0f);
+        rigidbodyComponent.AddForce((rabbit.transform.position - transform.position) * 20.0f);
 
 
 
