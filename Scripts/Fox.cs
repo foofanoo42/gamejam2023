@@ -10,7 +10,7 @@ public class Fox : MonoBehaviour
     [SerializeField] private Rabbit theRabbit;
 
     private float moveTime = 2;
-    private int huntTime = 5;
+    private int huntTime = 3;
     private bool moveMode = false;
     private bool huntMode = false;
     private Vector3 moveDirection;
@@ -54,12 +54,15 @@ public class Fox : MonoBehaviour
             moveDirection *= 10f;
 
             huntTime--;
+            Debug.Log("steps 'till hunting: " + huntTime);
 
-            if(huntTime <=0)
+            if (huntTime <=0)
             {
+                
                 moveMode = false;
-                moveTime = 5;
+                moveTime = 8;
                 huntMode = true;
+                huntTime = 8 + (int)Random.Range(0,10);
 
             }
 
@@ -94,15 +97,22 @@ public class Fox : MonoBehaviour
         if (huntMode)
 
         {
-
+            Debug.Log("hunting mode");
             //find direction towards the rabbit.
-            Vector3 rabbitDir = theRabbit.transform.position- this.transform.position;
-            transform.rotation = Quaternion.FromToRotation(Vector3.zero, rabbitDir);
+            Vector3 rabbitDir = new Vector3();
+                
+            rabbitDir.x = theRabbit.transform.position.x- this.transform.position.x;
+            rabbitDir.y = 0;
+            rabbitDir.z = theRabbit.transform.position.z - this.transform.position.z;
+            transform.rotation = Quaternion.FromToRotation(Vector3.forward, rabbitDir);
 
+            rabbitDir.Normalize();
+            rabbitDir *= 10f;
 
+            rigidbodyComponent.AddForce(rabbitDir * Time.fixedDeltaTime * foxSpeed*0.7f);
+            //transform.rotation = newDirection;
 
-
-            if (rigidbodyComponent.velocity.magnitude > 0.7)//huntmode moves slower
+            if (rigidbodyComponent.velocity.magnitude > 0.7f)//huntmode moves slower
             {
                 rigidbodyComponent.velocity = rigidbodyComponent.velocity.normalized * 0.7f;
                 //transform.rotation = Quaternion.Euler(rigidbodyComponent.velocity.normalized);

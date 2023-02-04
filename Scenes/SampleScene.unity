@@ -1650,7 +1650,7 @@ MonoBehaviour:
   _score: 0
   scoreText: {fileID: 1401488386}
   timeUnitlStarve: 200
-  hunger: 10
+  hunger: 0
   healthBar: {fileID: 807341059}
 --- !u!114 &1844983804
 MonoBehaviour:
@@ -2191,6 +2191,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 102476825499815502, guid: 3bc265b4070f2f3489cc0987fe5c2c5f,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 102476825499815502, guid: 3bc265b4070f2f3489cc0987fe5c2c5f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 102476825499815502, guid: 3bc265b4070f2f3489cc0987fe5c2c5f,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 102476825499815502, guid: 3bc265b4070f2f3489cc0987fe5c2c5f,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8219158840336401015, guid: 3bc265b4070f2f3489cc0987fe5c2c5f,
         type: 3}
       propertyPath: m_Name
@@ -2260,6 +2280,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 290534639263746404, guid: e4a4264b24fbadb4a8e09eb849ee0fea,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 290534639263746404, guid: e4a4264b24fbadb4a8e09eb849ee0fea,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 1321674037728141598, guid: e4a4264b24fbadb4a8e09eb849ee0fea,
         type: 3}
       propertyPath: m_RootOrder
