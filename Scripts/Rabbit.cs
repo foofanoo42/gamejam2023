@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Ui;
 
 public class Rabbit : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class Rabbit : MonoBehaviour
     [SerializeField] private Rigidbody rigidbodyComponent;
 
     [SerializeField] private float rotSpeed = 50f;
+    [SerializeField] private SoundManager soundMan;
+    
+    [SerializeField] private ScoreBoard scoreBoard;
 
 
     //private Vector3 playerVelocity = Vector3.Forward;
@@ -20,7 +24,7 @@ public class Rabbit : MonoBehaviour
     private float playerSpeed = 900f;
     private float playerWithoutCarrotSpeed = 900f;
     private float playerWithCarrotSpeed = 600f;
-    
+        
     
    // private float jumpHeight = 1.0f;
     //private float gravityValue = -9.81f;
@@ -95,9 +99,19 @@ public class Rabbit : MonoBehaviour
     {
         //_holdingCarrot = true;
         //thisCarrot = carrot;
+
+        if (_alive)
+        {
+            soundMan.PlaySound(10);
+            scoreBoard.QuickHunger();
+        }
+
         _alive = false;
         transform.rotation = Quaternion.Euler(0f, 0f, 90f);
         //SceneManager.LoadScene(SceneUtil.ScoreScene);
+
+        
+        
 
         //rigidbodyComponent.AddForce(new Vector3(0f, 10f, 0f));
 
@@ -138,6 +152,10 @@ public class Rabbit : MonoBehaviour
                 }
 
                 thisCarrot.UnPop();
+
+                soundMan.PlaySound(1);
+
+
 
                 //play some sound
                 _holdingCarrot = true;

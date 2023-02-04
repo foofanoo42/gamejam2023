@@ -135,10 +135,14 @@ public class Fox : MonoBehaviour
         {
             return;
         }
-        
-        Debug.Log("fox collided with rabbit");
-        thisRabbit.KillRabbit();
-        foxSpeed = 0f;
+
+
+        if (foxSpeed > 0f)
+        {
+            Debug.Log("fox collided with rabbit");
+            thisRabbit.KillRabbit();
+            foxSpeed = 0f;
+        }
 
     }
 }

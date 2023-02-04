@@ -24,13 +24,16 @@ namespace Ui
 		[SerializeField] private Rabbit theRabbit;
 		[SerializeField] private Image blackScreen;
 
+		[SerializeField] private SoundManager soundMan;
+
 		private float _timeLeftUnitlStarve;
-		private float _timeEndScreen = 8f;
+		[SerializeField] private float _timeEndScreen = 1f;//make longer when not testing
 
         public void Awake()
         {
             TreeHouse.OnPointsGained += AddToScore;
 			_timeLeftUnitlStarve = timeUnitlStarve;
+			soundMan.PlaySound(9);
 			Score = 0;
         }
         
@@ -41,12 +44,19 @@ namespace Ui
             Debug.Log($"{Score}");
             
             scoreText.text = $"{Score}";
+			soundMan.PlaySound(2);
 
 			// reset time until starve
 			_timeLeftUnitlStarve = timeUnitlStarve;
 
         }
-        
+
+		public void QuickHunger()
+        {
+
+			_timeLeftUnitlStarve = 0.5f;
+        }
+
 		private void FixedUpdate()
 		{
 
@@ -59,18 +69,23 @@ namespace Ui
 			{
 				Debug.Log("You Lose!");
 				_timeEndScreen -= Time.fixedDeltaTime;
+				
+				
 				theRabbit.KillRabbit();
-
+				
 				blackScreen.color = new Color(0f, 0f, 0f, 0.5f);
 
 			}
 
 			//Debug.Log($"{_timeLeftUnitlStarve} {_timeEndScreen}");
 
-			if ((_timeLeftUnitlStarve <= 0)&&(_timeEndScreen <0))
+			if ((_timeLeftUnitlStarve <= 0)&&(_timeEndScreen <=0))
 			{
+				Debug.Log("called scenemanager successfully");
 				//Debug.Log("You Lose!");
 				SceneManager.LoadScene(SceneUtil.ScoreScene);
+
+				soundMan.PlaySound(11);
 			}
 			
 			float healthPercent = _timeLeftUnitlStarve / timeUnitlStarve;
